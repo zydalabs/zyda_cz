@@ -39,7 +39,7 @@ class ZydaCz(BaseCommitizen):
                     {
                         "value": "Bug",
                         "name": "Bug: non-breaking change which fixes an issue",
-                        "key": "i",
+                        "key": "b",
                     },
                     {
                         "value": "Chore",
@@ -66,7 +66,7 @@ class ZydaCz(BaseCommitizen):
                     {
                         "value": "Hotfix",
                         "name": "Hotfix: A bug fix",
-                        "key": "i",
+                        "key": "h",
                     },
                     {
                         "value": "Refactor",
