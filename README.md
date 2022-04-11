@@ -30,7 +30,7 @@ Besides that, having a convention on your commits makes it possible to parse the
 
 Zyda-Commitizen requires to install `commitizen`
 
-  ```pip install git+https://github.com/zydalabs/zyda_cz.git```
+    pip install git+https://github.com/zydalabs/zyda_cz.git
 
 This will install the package and the prerequisites too
 
