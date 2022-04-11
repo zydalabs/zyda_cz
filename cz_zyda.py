@@ -37,63 +37,59 @@ class ZydaCz(BaseCommitizen):
                 "message": "Select the type of change you are committing",
                 "choices": [
                     {
-                        "value": "init",
-                        "name": "init: Initial commits, like creating a new project",
+                        "value": "Bug",
+                        "name": "Bug: non-breaking change which fixes an issue",
                         "key": "i",
                     },
                     {
-                        "value": "fix",
-                        "name": "fix: A bug fix",
-                        "key": "x",
+                        "value": "Chore",
+                        "name": (
+                            "Chore: updating build tasks, package manager configs, etc; no production code change"
+                        ),
+                        "key": "c",
                     },
                     {
-                        "value": "feat",
-                        "name": "feat: Add a new feature",
-                        "key": "f",
-                    },
-                    {
-                        "value": "docs",
-                        "name": "docs: Documentation only changes",
+                        "value": "Docs",
+                        "name": "Docs: Documentation only changes",
                         "key": "d",
                     },
                     {
-                        "value": "style",
-                        "name": (
-                            "style: Changes that do not affect the "
-                            "meaning of the code (white-space, formatting,"
-                            " missing semi-colons, etc)"
-                        ),
-                        "key": "s",
+                        "value": "Feature",
+                        "name": "Feature: Add a new feature",
+                        "key": "f",
                     },
                     {
-                        "value": "refactor",
+                        "value": "Fix",
+                        "name": "Fix: A bug fix",
+                        "key": "x",
+                    },
+                    {
+                        "value": "Hotfix",
+                        "name": "Hotfix: A bug fix",
+                        "key": "i",
+                    },
+                    {
+                        "value": "Refactor",
                         "name": (
-                            "refactor: A code change that neither fixes "
+                            "Refactor: A code change that neither fixes "
                             "a bug nor adds a feature"
                         ),
                         "key": "r",
                     },
                     {
-                        "value": "test",
+                        "value": "Release",
                         "name": (
-                            "test: Adding missing or correcting " "existing tests"
-                        ),
-                        "key": "t",
-                    },
-                    {
-                        "value": "chore",
-                        "name": (
-                            "chore: updating build tasks, package manager configs, etc; no production code change"
-                        ),
-                        "key": "c",
-                    },
-                    {
-                        "value": "release",
-                        "name": (
-                            "release: release a new version of the project"
+                            "Release: release a new version of the project"
                             "scripts (example scopes: GitLabCI)"
                         ),
                         "key": "z",
+                    },
+                    {
+                        "value": "Test",
+                        "name": (
+                            "Test: Adding missing or correcting " "existing tests"
+                        ),
+                        "key": "t",
                     },
                 ],
             },
@@ -147,7 +143,7 @@ class ZydaCz(BaseCommitizen):
         is_breaking_change = answers["is_breaking_change"]
 
         if scope:
-            scope = f"{scope}"
+            scope = f"/{scope}"
         if body:
             body = f"\n\n{body}"
         if is_breaking_change:
@@ -155,7 +151,7 @@ class ZydaCz(BaseCommitizen):
         if footer:
             footer = f"\n\n{footer}"
 
-        message = f"{scope}[{prefix}]: {subject}{body}{footer}"
+        message = f"{prefix}{scope}: {subject}{body}{footer}"
 
         return message
 
